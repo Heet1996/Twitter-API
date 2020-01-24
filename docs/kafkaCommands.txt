@@ -1,0 +1,27 @@
+Start zookeper: zookeeper-server-start E:/Project/Kafka/kafka_2.12-2.3.1/config/zookeeper.properties
+
+Start kafka: kafka-server-start E:/Project/Kafka/kafka_2.12-2.3.1/config/server.properties
+
+Kafka topics: 
+1)create: kafka-topics --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
+2)list: kafka-topics --bootstrap-server localhost:9092 --list
+3)delete: kafka-topics --bootstrap-server localhost:9092 --topic first_topic --delete
+3)describe: kafka-topics --bootstrap-server localhost:9092 --topic first_topic --describe
+
+Kafka producers:
+
+kafka-console-producer --broker-list localhost:9092 --topic first_topic 
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic --property parse.key=true --property key.separator=,
+
+Kafka consumer:
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning --property print.key=true --property key.separator=,
+
+Kafka group consumer: 
+
+1)Create group consumer
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my_first_application
+
+2)Status of the group consumer
+kafka-consumer-groups --bootstrap-server localhost:9092 --group my_first_application --describe

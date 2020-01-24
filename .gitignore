@@ -1,0 +1,11 @@
+/kafka_2.12-2.3.1/
+/code/
+/build/
+/gradle/
+/.idea/
+/code.zip
+/npp.7.8.1.Installer.exe
+/build.gradle
+/gradlew.bat
+/kafka-2.3.1-src.tgz
+/*.bin/
